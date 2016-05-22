@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdint.h>
+asm("start:");
+int main(int argc, char **argv)
+{
+	int size;
+	asm("movl $(end - start), %0" : "=r"(size));
+	printf("The size of main() function is %d bytes\n", size);
+}
+asm("end:");
